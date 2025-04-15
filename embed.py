@@ -1,7 +1,7 @@
 import PyPDF2
 import streamlit as st
 
-with open("C:/Users/jugal/Downloads/POCs/speech_text_chatbot/doc/cvc.pdf", "rb") as file:
+with open("cvc.pdf", "rb") as file:
     reader = PyPDF2.PdfReader(file)
     text = " ".join([page.extract_text() for page in reader.pages])
 
