@@ -44,27 +44,19 @@ OpenAI and Pinecone client API keys
 
 ### Usage
 
-1. Clone the repository:
-
-    `git clone https://github.com/Jugz-08/speech-to-text-voicebot.git`
-
+1. Clone the repository:  
+    `git clone https://github.com/Jugz-08/speech-to-text-voicebot.git`  
     `cd speech-to-text-voicebot`
 
-
-2. Install dependencies:
-
+2. Install dependencies:  
    `pip install -r requirements.txt`
 
-
-3. Embed the PDF:  
+3. Embed the PDF:    
 Place your PDF in the repository folder (or use the sample provided).  
 Run:  
-
     `python embed.py`
 
-
 4. Start the voicebot:  
-
     `python final.py`
 
 
