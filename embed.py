@@ -1,5 +1,8 @@
 import PyPDF2
 import streamlit as st
+from openai import OpenAI
+from pinecone import Pinecone
+from pinecone import Pinecone, ServerlessSpec
 
 with open("cvc.pdf", "rb") as file:
     reader = PyPDF2.PdfReader(file)
@@ -13,18 +16,11 @@ splitter = RecursiveCharacterTextSplitter(
 )
 chunks = splitter.split_text(text)
 
-from openai import OpenAI
-
 client = OpenAI()
 embeddings = [client.embeddings.create(input=chunk, model="text-embedding-3-small").data[0].embedding for chunk in chunks]
 
-from pinecone import Pinecone
-
-# Replace with your API key from Pinecone Console   
-from pinecone import Pinecone, ServerlessSpec
-
-# 1. Initialize client
-pc = Pinecone(api_key=st.secrets["PINECONE_API_KEY"])
+# 1. Initialize pinecone client
+pc = Pinecone(api_key=st.secrets["PINECONE_API_KEY"])  # Replace with your API key from Pinecone Console 
 
 # 2. Create index
 pc.create_index(
