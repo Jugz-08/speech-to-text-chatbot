@@ -4,17 +4,15 @@ import base64
 from langchain_community.vectorstores import Pinecone
 from langchain.prompts import PromptTemplate
 from langchain.chains import ConversationalRetrievalChain
-from langchain_community.llms import OpenAI as LangchainOpenAI  # Correct LLM class
+from langchain_community.llms import OpenAI as LangchainOpenAI 
 from langchain.memory import ConversationBufferWindowMemory
-from openai import OpenAI  # For audio transcription and TTS
-from dotenv import load_dotenv
+from openai import OpenAI 
 from audio_recorder_streamlit import audio_recorder
 from utils import text_to_speech, autoplay_audio, speech_to_text
 from langchain_openai import OpenAIEmbeddings
 
 # Load environment variables
 load_dotenv()
-os.environ['OPENAI_API_KEY'] = st.secrets['OPENAI_API_KEY']
 
 client = OpenAI(api_key=st.secrets['OPENAI_API_KEY'])
 api_key_openai = st.secrets['OPENAI_API_KEY']
@@ -133,5 +131,4 @@ def main():
             os.remove(audio_file)
 
 if __name__ == "__main__":
-    setup_pinecone_api(api_key_pinecone)
     main()
