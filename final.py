@@ -1,6 +1,7 @@
 import os
 import streamlit as st
 import base64
+from dotenv import load_dotenv()
 from langchain_community.vectorstores import Pinecone
 from langchain.prompts import PromptTemplate
 from langchain.chains import ConversationalRetrievalChain
